@@ -3,6 +3,7 @@ package com.vehicle.service;
 public class Bike extends Vehicle{
     private String type;
     private String suspension;
+    private boolean foldable;
 
     public boolean isFoldable() {
         return foldable;
@@ -27,6 +28,4 @@ public class Bike extends Vehicle{
     public void setType(String type) {
         this.type = type;
     }
-
-    private boolean foldable;
 }
