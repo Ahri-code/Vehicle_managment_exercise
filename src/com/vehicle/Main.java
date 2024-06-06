@@ -4,6 +4,7 @@ import com.vehicle.exeption.AcademyException;
 import com.vehicle.service.Bike;
 import com.vehicle.service.Car;
 import com.vehicle.service.Motorbike;
+import com.vehicle.service.Vehicle;
 import com.vehicle.service.implementation.BikeManagement;
 import com.vehicle.service.implementation.CarManagement;
 import com.vehicle.service.implementation.MotorbikeManagement;
@@ -17,11 +18,9 @@ public class Main {
 
         MySingleTone.getInstance();
 
-//      CREAZIONE LISTA
+//      List creation
 
-//      Auto
-
-        List<Car> cars = new ArrayList<>();
+        List<Vehicle> vehicles = new ArrayList<>();
 
         Car paramCar = new Car();
         paramCar.setnDoors(5);
@@ -32,7 +31,7 @@ public class Main {
         paramCar.setColor("Red");
         paramCar.setFuel("Gas");
 
-        cars.add(paramCar);
+        vehicles.add(paramCar);
 
         Car paramCar2 = new Car();
         paramCar2.setnDoors(3);
@@ -42,11 +41,7 @@ public class Main {
         paramCar2.setColor("Green");
         paramCar2.setFuel("Gas");
 
-        cars.add(paramCar2);
-
-//      Moto
-
-        List<Motorbike> motorbikes = new ArrayList<>();
+        vehicles.add(paramCar2);
 
         Motorbike paramMotorbike = new Motorbike();
         paramMotorbike.setCc(500);
@@ -56,45 +51,27 @@ public class Main {
         paramMotorbike.setColor("Blue");
         paramMotorbike.setFuel("Gas");
 
-        motorbikes.add(paramMotorbike);
-
-//      Bici
-
-        List<Bike> bikes = new ArrayList<>();
+        vehicles.add(paramMotorbike);
 
         Bike paramBike = new Bike();
         paramBike.setnWheel(2);
         paramBike.setBrand("KTM");
         paramBike.setColor("Orange");
 
-        bikes.add(paramBike);
+        vehicles.add(paramBike);
 
-//      FOR
+//      For creation
 
-//      Auto
-
-        for(Car car : cars) {
-            Car myCar = createCar(car);
-            if(myCar != null) {
-                System.out.println("***************\nMarca: " + myCar.getBrand() + "\nNumero porte: " + myCar.getnDoors() + "\nNumero ruote: "+ myCar.getnWheel() + "\nCilindrata: " + myCar.getCc() + "\nColore:  "+ myCar.getColor() + "\nTarga: "+ myCar.getLicencePlate() + "\n***************");
-            }
-        }
-
-//      Moto
-
-        for(Motorbike motorbike : motorbikes) {
-            Motorbike myMotorbike = createMotorbike(motorbike);
-            if(myMotorbike != null) {
-                System.out.println("***************\nMarca: " + myMotorbike.getBrand() + "\nNumero ruote: "+ myMotorbike.getnWheel() + "\nCilindrata: " + myMotorbike.getCc() + "\nColore:  "+ myMotorbike.getColor() + "\nTarga: "+ myMotorbike.getLicencePlate() + "\n***************");
-            }
-        }
-
-//       Bici
-
-        for(Bike bike : bikes) {
-            Bike myBike = createBike(bike);
-            if(myBike != null) {
-                System.out.println("***************\nMarca: " + myBike.getBrand() + "\nNumero ruote: "+ myBike.getnWheel() + "\nSospensioni: " + myBike.getSuspension() + "\nColore:  "+ myBike.getColor() + "\nTipologia: "+ myBike.getType() + "\nPieghevole: "+ myBike.isFoldable() + "\n***************");
+        for(Vehicle vehicle : vehicles) {
+            if(vehicle instanceof Car) {
+                Car car = (Car) vehicle;
+                Car myCar = createCar(car);
+            } else if (vehicle instanceof Motorbike) {
+                Motorbike motorbike = (Motorbike) vehicle;
+                Vehicle myMotorbike = createMotorbike(motorbike);
+            } else if (vehicle instanceof Bike) {
+                Bike bike = (Bike) vehicle;
+                Vehicle myBike = createBike(bike);
             }
         }
 

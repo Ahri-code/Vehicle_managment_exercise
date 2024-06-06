@@ -6,4 +6,5 @@ import com.vehicle.service.Vehicle;
 public interface VehicleManagement {
 
     Vehicle createVehicle(Vehicle params) throws AcademyException;
+//    public void removeVehicle(Integer id) throws AcademyException;
 }

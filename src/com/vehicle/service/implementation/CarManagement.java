@@ -4,6 +4,8 @@ import com.vehicle.exeption.AcademyException;
 import com.vehicle.service.Vehicle;
 import com.vehicle.service.Car;
 import com.vehicle.service.interaces.VehicleManagement;
+import com.vehicle.singletone.MySingleTone;
+
 import java.util.Date;
 
 public class CarManagement implements VehicleManagement {
@@ -36,5 +38,11 @@ public class CarManagement implements VehicleManagement {
 
         param.setManifacturingDate(new Date());
         return param;
+    }
+
+    public void removeVehicle(Integer id) throws AcademyException {
+        if(!MySingleTone.getInstance().removeItem(id)) {
+            throw new AcademyException("Id non trovato");
+        }
     }
 }
