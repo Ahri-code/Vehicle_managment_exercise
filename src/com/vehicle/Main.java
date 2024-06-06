@@ -7,12 +7,15 @@ import com.vehicle.service.Motorbike;
 import com.vehicle.service.implementation.BikeManagement;
 import com.vehicle.service.implementation.CarManagement;
 import com.vehicle.service.implementation.MotorbikeManagement;
+import com.vehicle.singletone.MySingleTone;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        MySingleTone.getInstance();
 
 //      CREAZIONE LISTA
 
